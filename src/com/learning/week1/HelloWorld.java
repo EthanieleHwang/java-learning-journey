@@ -1,4 +1,4 @@
-package com.learn.week1;
+package com.learning.week1;
 
 public class HelloWorld {
     public static void main(String[] args) {
