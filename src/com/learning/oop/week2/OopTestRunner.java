@@ -1,8 +1,12 @@
 package com.learning.oop.week2;
 
+import com.learning.oop.week2.impl.*;
 import com.learning.oop.week2.inheritance.Animal;
 import com.learning.oop.week2.inheritance.Cat;
 import com.learning.oop.week2.inheritance.Dog;
+import com.learning.oop.week2.interfaces.Flyable;
+import com.learning.oop.week2.interfaces.Swimmable;
+import org.w3c.dom.ls.LSOutput;
 
 public class OopTestRunner {
     public static void main(String[] args) {
@@ -122,5 +126,63 @@ public class OopTestRunner {
         dog.makeSound();
         cat.move();
         System.out.println("---------------------------------");
+
+        System.out.println("\n --- Interface Polymorphism Tests ---");
+
+        // Create instances of classes implementing interfaces
+        Flyable flyer1 = new Bird();
+        Flyable flyer2 = new Plane();
+        Flyable flyerDuck = new Duck();
+        Swimmable swimmer1 = new Fish();
+        Swimmable swimmerDuck  = new Duck();
+
+        //1. Interface reference
+        System.out.println("Testing fly() via Flyable reference:");
+        flyer1.fly();
+        flyer2.fly();
+        flyerDuck.fly();
+
+        System.out.println("\nTesting swim() via Swimmable reference:");
+        swimmer1.swim();
+        swimmerDuck.swim();
+
+        System.out.println("\nProcessing Flyable objects in an array:");
+        Flyable[] flyers = {flyer1, flyer2, flyerDuck};
+        for(Flyable flyer:flyers){
+            flyer.takeOff();
+            flyer.fly();
+            flyer.land();
+            System.out.println("---------------------------------");
         }
+        System.out.println("-------------------------------------");
+
+
+        System.out.println("\n --- Interface Default & Static Method Tests---");
+        Bird bird = new Bird();
+        Plane plane = new Plane();
+        Duck duck = new Duck();
+
+        // Call default method
+        System.out.println("Testing default method:");
+        bird.performEmergencyLanding();
+        plane.performEmergencyLanding();
+        duck.performEmergencyLanding();
+
+        //2. Call static method
+        System.out.println("Testing static method:");
+        String regulations = Flyable.getFlightRegulations();
+        System.out.println("Flight Regulations: " + regulations);
+
+
+      class AdvancedPlane extends Plane {
+          @Override
+          public void performEmergencyLanding() {
+              System.out.println("Advanced Plane executing specific emergency landing!");
+              super.performEmergencyLanding(); // 调用 Flyable 接口的默认实现
+          }
+      }
+        AdvancedPlane advancedPlane = new AdvancedPlane();
+        advancedPlane.performEmergencyLanding();
+        }
+
 }
