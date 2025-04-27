@@ -1,6 +1,6 @@
 package com.learning.oop.week2.inheritance;
 
-public class Animal {
+public abstract class  Animal {
     protected String name; //used protected to allow access in subclasses
     protected int age;
 
@@ -16,15 +16,15 @@ public class Animal {
     public void sleep() {
         System.out.println(name + " is sleeping.");
     }
-
-    public void makeSound() {
-        System.out.println(name + " makes a sound.");
-    }
-
     //final method cannot be overridden
     public final void breathe() {
         System.out.println(name + " is breathing.");
     }
+
+    public abstract void makeSound() ;
+
+
+    public abstract void move();
 
     public String getName() {
             return name;

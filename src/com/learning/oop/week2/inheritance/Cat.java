@@ -16,6 +16,10 @@ public class Cat extends Animal {
     public void makeSound() {
         System.out.println(name + " (a cat) meows.");
     }
+    @Override
+    public void move(){
+        System.out.println(name + " is walking gracefully.");
+    }
 
     public boolean isLikeLaserPointer() {
         return likeLasePointer;

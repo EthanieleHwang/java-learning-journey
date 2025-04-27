@@ -21,6 +21,10 @@ public class Dog extends Animal {
         System.out.println(name + " (a "+ breed + ") barks.");
     }
 
+    @Override
+    public void move(){
+        System.out.println(name+"is running on four legs.");
+    }
     public void fetch() {
         System.out.println(name + " is fetching the ball.");
         super.eat();

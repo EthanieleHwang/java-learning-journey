@@ -112,5 +112,15 @@ public class OopTestRunner {
             }
             System.out.println("---------------------------------------------------------");
             }
+
+        Dog dog = new Dog("Max", 5, "Beagle");
+        Cat cat = new Cat("Mittens", 2, true);
+
+        System.out.println("\n--- Abstract Class Tests ---");
+        dog.eat();
+        cat.sleep();
+        dog.makeSound();
+        cat.move();
+        System.out.println("---------------------------------");
         }
 }
